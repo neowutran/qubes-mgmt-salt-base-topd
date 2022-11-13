@@ -53,7 +53,7 @@ class Regex(six.text_type):
 
 
 def getter(index, element, *ignored):  # pylint: disable=W0613
-    if isinstance(element, collections.Mapping):
+    if isinstance(element, collections.abc.Mapping):
         getter_ = operator.itemgetter
     else:
         getter_ = operator.attrgetter
@@ -243,7 +243,7 @@ def itext(element):
         element:
     '''
     # Dictionary
-    if isinstance(element, collections.Mapping):
+    if isinstance(element, collections.abc.Mapping):
         return '\n'.join(map(six.text_type, six.itervalues(element)))
 
     # Tuple / list
